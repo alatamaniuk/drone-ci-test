@@ -1,0 +1,13 @@
+version: '2'
+
+services:
+  jenkins-master:
+    build:
+     context: .
+     dockerfile: /etc/docker/files/Dockerfile-alpine
+     args:
+     -  VERSION:${JENKINS_MASTER_VERSION_IMAGE}
+    ports:
+    - 8080:8080
+    volumes:
+    - /var/run/docker.sock:/var/run/docker.sock
